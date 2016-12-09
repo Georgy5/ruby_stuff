@@ -11,7 +11,7 @@ class Tictactoe
 
 	def display_rules
 		puts "Welcome to TIC TAC TOE"
-		puts "To play zou must insert the coordinates in the following format:"
+		puts "To play you must insert the coordinates in the following format:"
 		puts "x, y"
 	end
 
