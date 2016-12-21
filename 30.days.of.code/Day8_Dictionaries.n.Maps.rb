@@ -1,9 +1,9 @@
 # Enter your code here. Read input from STDIN. Print output to STDOUT
-phonebook = {}
+phonebook = {}   
 arr = []
+N = gets.chomp.to_i 
 
-n = gets.strip.to_i
-n.times do
+N.times do
   name, number = gets.split
   phonebook[name] = number
 end
@@ -15,9 +15,5 @@ while true
 end
 
 0.upto(arr.size-1) do |j|
-  if phonebook.has_key?(arr[j])
-    puts "#{arr[j]}=#{phonebook[arr[j]]}" 
-  else
-    puts "Not found"
-  end
+  puts phonebook.has_key?(arr[j]) ? "#{arr[j]}=#{phonebook[arr[j]]}" : "Not found"
 end
