@@ -28,12 +28,7 @@ class Student < Person
   end
   
   def calculate
-    sum = 0
-    0.upto(@scores.size - 1) do |i|
-      sum += @scores[i].to_i
-    end
-    res = sum / @scores.size
-    
+    res = @scores.inject(0){|sum,x|sum+x.to_i} / @scores.size   
     case
     when res.between?(90, 100)
       "O"
