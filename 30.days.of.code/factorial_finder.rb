@@ -22,7 +22,8 @@ end
 
 
 def factorial(n)
-    n == 0 ? 1 : n * factorial(n-1)
+	raise "Expects positive number as input" if n < 1
+  n == 1 ? 1 : n * factorial(n-1)
 end
 
 
