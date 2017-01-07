@@ -11,19 +11,15 @@ end
 class Solution
 
 	def removeDuplicates(head)
-  #write your code here
-  node = head
-  while node
-    if node.next
+    #write your code here
+    node = head
+    while node.next
       if node.data == node.next.data
         node.next = node.next.next
       else
         node = node.next
       end
-    else
-      node = node.next
     end
-      end
     return head
   end
   
