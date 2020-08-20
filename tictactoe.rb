@@ -69,7 +69,7 @@ class Board
 			@board["00"] + @board["11"] + @board["22"] == player.symbol * 3 ||
 			@board["02"] + @board["11"] + @board["02"] == player.symbol * 3
 
-		  	puts player.name + "Won!!"
+		  	puts player.name + " Won!!"
 		  	true
 		else
 			false
