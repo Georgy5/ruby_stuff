@@ -1,3 +1,6 @@
+# Prompt user for input
+puts 'Enter input string'
+
 # Read a full line of input from stdin and save it to our dynamically typed variable, input_string.
 input_string = gets
 

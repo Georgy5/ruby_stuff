@@ -18,14 +18,17 @@ class Person
     end
 end
 
+puts 'Enter amount of persons to evaluate'
 T=gets.to_i
 for i in (1..T)do
+    puts 'Enter persons age'
     age=gets.to_i
     p=Person.new(age)
     p.amIOld()
     for j in (1..3)do
         p.yearPasses()
     end
+    puts '...one year later'
     p.amIOld
     puts ""
 end   
