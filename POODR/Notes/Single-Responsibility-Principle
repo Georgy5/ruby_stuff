@@ -1,0 +1,17 @@
+Single Responsibility Principle
+
+Every module, class or function should have responsibility over a single part of that program's functionality. All of that module, class or function's services should be narrowly allignedwith that responsibility.
+"A module should be responsible to one, and only one, actor." - Robert C. Martin
+
+Depend on Behaviour, not Data
+-encapsulate data with an accessor. Behavior live in one and only one (OAOO) place, don't repeat yourself (DRY) and single source of truth (SSOT).
+
+
+"Gather together the things that change for the same reasons. Separate those things that change for different reasons."
+-increase cohesion between things that change for the same reason, and decrease the coupling of those things that change for different reasons.
+
+"However, as you think about this principle, remember that the reason for change are people. It is people who request changes...."
+
+
+Summary: (from Chapter 2)
+The path t ochangable and maintainable OO software begins with classes that have a single responsibilty. Classes that do one thing isolate that thing from the rest of your application. This isolation allows change without consequence and reuse without duplication.

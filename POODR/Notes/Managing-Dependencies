@@ -1,0 +1,11 @@
+Managing Dependencies
+
+Getting access to behaviour when that behavior is implemented in other objects.
+
+"Because well designed ojects have a single responsibility, their very natue requires that they collaborate to accomplish complex tasks."
+-to collaborate, an object must know something about others
+-Knowing creates a dependancy
+-dependencies can strangle an aplication if not managed carefully
+
+"An object depends on another object if, when one object changes, the other might be forced to change in turn", i.e. the objects are tightly coupled.
+
