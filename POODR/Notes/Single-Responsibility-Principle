@@ -1,6 +1,6 @@
 Single Responsibility Principle
 
-Every module, class or function should have responsibility over a single part of that program's functionality. All of that module, class or function's services should be narrowly allignedwith that responsibility.
+Every module, class or function should have responsibility over a single part of that program's functionality. All of that module, class or function's services should be narrowly alligned with that responsibility.
 "A module should be responsible to one, and only one, actor." - Robert C. Martin
 
 Depend on Behaviour, not Data
@@ -14,4 +14,11 @@ Depend on Behaviour, not Data
 
 
 Summary: (from Chapter 2)
-The path t ochangable and maintainable OO software begins with classes that have a single responsibilty. Classes that do one thing isolate that thing from the rest of your application. This isolation allows change without consequence and reuse without duplication.
+The path to changable and maintainable OO software begins with classes that have a single responsibilty. Classes that do one thing isolate that thing from the rest of your application. This isolation allows change without consequence and reuse without duplication.
+
+
+www.freecodecamp.org/news/solid-principles-explained-in-plain-english/
+
+Following the SRP is important. First of all, because many different teams can work on the same project and edit the same class for different reasons, this could lead to incompatible modules.
+
+Second it makes version control easier. For example, say we have a persistence class that handles database operations, and we see a change in that file in the Github commits. By following the SRP, we will know that it is related to storage or database related stuff.
