@@ -22,7 +22,7 @@ csv_options = { col_sep: ',', force_quotes: true, quote_char: '"' }
 filepath    = 'fahrplan.csv'
 
 CSV.open(filepath, 'wb', csv_options) do |csv|
-  csv << ['Datum', 'Fahrtenart', 'Abfahrtsort', 'Ankunftsort', 'Odometer', 'km (Ankunft)', "Hin-/Rückfahrt"]
+  csv << ['Datum', 'Fahrtenart', 'Abfahrtsort', 'Ankunftsort', 'Odometer', 'km (Ankunft)', "Hin-/Rueckfahrt"]
 
   log_by_date.each do |element|
     date = element[:date]
@@ -49,7 +49,7 @@ CSV.open(filepath, 'wb', csv_options) do |csv|
       linematch = line.match(arriving_pattern) 
       puts "Anfahrt: #{linematch}"
       a_date, a_type, a_km, a_odometer = line.match(arriving_pattern).captures
-      csv << [a_date, a_type, '', '', a_odometer, "#{a_km} (Ankunft)", '']
+      csv << [a_date, a_type, '', '', a_odometer, a_km, '']
     end
   end
 end
