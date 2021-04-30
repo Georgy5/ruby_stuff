@@ -1,9 +1,9 @@
-# Step 2 - shopping
+# Step 3 - Shopping with fruit quantity and availability
 store = {
-  kiwi: 1.25,
-  banana: 0.5,
-  mango: 4,
-  orange: 9
+  kiwi:   { price: 1.25, availability: 10 },
+  mango:  { price: 4,    availability: 4 },
+  banana: { price: 0.5,  availability: 10 },
+  orange: { price: 1,    availability: 15 }
 }
 
 cart = Hash.new(0)
@@ -17,8 +17,8 @@ end
 
 def show_available(store)
   puts 'In our store today:'
-  store.each do |item, price|
-    puts "#{item}: #{'%.2f' % price}€"
+  store.each do |product, product_info|
+    puts "#{product}: #{'%.2f' % product_info[:price]}€ (#{product_info[:availability]} available)"
   end
   puts '-----------------------------'
 end
@@ -39,20 +39,26 @@ until input.downcase == 'quit'
   puts "> Which item?"
   input = gets.chomp.downcase
   if store.key?(input.to_sym)
-    puts "How many #{input}s would you like to add to your cart?"
+    puts "> How many #{input}s would you like to add to your cart?"
     quantity = gets.chomp.to_i
-    quantity += cart[input.to_sym]
-    cart[input.to_sym] = quantity
+    if quantity > store[input.to_sym][:availability]
+      puts "> Sorry, there are only #{store[input.to_sym][:availability]} available."
+    else
+      cart[input.to_sym] += quantity
+      store[input.to_sym][:availability] -= quantity
+    end
   else
-    puts "Sorry, #{input} is not available today."
+    puts "> Sorry, #{input} is not available today."
     puts '--------------------'
     show_available(store)
   end
 end
+
 # calculate bill and checkout
 cart.each do |product, quantity|
-  item_total = quantity * store[product]
-  puts "#{product}: #{quantity} X #{'%.2f' % store[product]} = #{'%.2f' % item_total}€"
+  item_total = quantity * store[product][:price]
+  puts "#{product}: #{quantity} X #{'%.2f' % store[product][:price]} = #{'%.2f' % item_total}€"
   total += item_total
 end
+
 checkout(total)
