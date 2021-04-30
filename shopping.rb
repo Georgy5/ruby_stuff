@@ -1,4 +1,4 @@
-# Step 1 - Dumb shopping
+# Step 2 - shopping
 store = {
   kiwi: 1.25,
   banana: 0.5,
@@ -6,7 +6,7 @@ store = {
   orange: 9
 }
 
-cart = []
+cart = Hash.new(0)
 total = 0
 
 def welcome
@@ -15,7 +15,7 @@ def welcome
   puts '-----------------------------'
 end
 
-def show_availale(store)
+def show_available(store)
   puts 'In our store today:'
   store.each do |item, price|
     puts "#{item}: #{'%.2f' % price}€"
@@ -29,35 +29,30 @@ def checkout(cost)
   puts '-----------------------------'
 end
 
-def calculate_bill(cart, store, total)
-  cart.each do |item|
-    total += store[item.to_sym]
-  end
-  return total
-end
-
 # interface
 welcome
-show_availale(store)
+show_available(store)
 
 # interface loop
 input = ''
-while input
+until input.downcase == 'quit'
   puts "> Which item?"
   input = gets.chomp.downcase
-  if input == 'quit'
-    cost = calculate_bill(cart, store, total)
-    p cost
-    checkout(cost)
-    break
-  end
-  # check user input
-  if store.include?(input.to_sym)
-    cart.append(input)
-    puts "#{input.capitalize} added to cart"
+  if store.key?(input.to_sym)
+    puts "How many #{input}s would you like to add to your cart?"
+    quantity = gets.chomp.to_i
+    quantity += cart[input.to_sym]
+    cart[input.to_sym] = quantity
   else
-    puts "> Sorry, no #{input} in store."
-    puts '-----------------------------'
-    show_availale(store)
+    puts "Sorry, #{input} is not available today."
+    puts '--------------------'
+    show_available(store)
   end
 end
+# calculate bill and checkout
+cart.each do |product, quantity|
+  item_total = quantity * store[product]
+  puts "#{product}: #{quantity} X #{'%.2f' % store[product]} = #{'%.2f' % item_total}€"
+  total += item_total
+end
+checkout(total)
