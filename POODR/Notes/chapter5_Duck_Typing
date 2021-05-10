@@ -1,0 +1,24 @@
+Duck Typing
+Duck types are public interfaces that are not tied to any specific class. (access-class interfaces)
+(i.e. Duck typing detaches public interfaces from specific classes, creating virtual types)
+
+"if an object quacks like a duck and walks like a duck, then its class is immaterial - it's a duck."
+If an object walks like a duck and talks like a duck, then the interpreter is happy to treat it as if it were a duck.
+
+In a dynamic language, like Ruby or Python, as long as the object we're passing to the function has the method 'quack' (i.e. talks like a duck), we're good to go - no need for boilerplate code.
+
+Duck typing - the type of an object is defined by what the object can do. (what it responds to)
+(type is a term to describe the category of the contents of a variable)
+(variables are references to object's location in memory)
+
+Note: can call #respond_to? on an object to ask if it can do something. (Though see below)
+
+Recognizing hidden Ducks
+The following indicate the presence of a hidden duck:  (and show a lock of trust in collaborating objects)
+ - Case statements that switch on class
+ - #kind_of? and #is_a?
+ - #responds_to?
+
+"flexible applications are built on objects that operate on trust."
+
+"Duck typing reveals underlying abstractions that might otherwise be invisible. Depending on these abstractions reduces risk and increases felxibility, making your application cheaper to maintain and easier to change."
