@@ -22,3 +22,19 @@ The following indicate the presence of a hidden duck:  (and show a lock of trust
 "flexible applications are built on objects that operate on trust."
 
 "Duck typing reveals underlying abstractions that might otherwise be invisible. Depending on these abstractions reduces risk and increases felxibility, making your application cheaper to maintain and easier to change."
+
+
+Monkey Patching
+- changing base classes is known as monkey patching.
+
+Implementing duck types across youe own classes is one thing, but changing Ruby base classes to introduce new duck types is quite another. The tradeoffs are different, the rists are greater.
+"Neither of these considerations should prevent you from monkey patching Ruby at need;"
+however, you must be able to eloquently defend this design decision.
+The standard of proof is high.
+
+
+Duck Typing Summary
+Duck typing is built on dynmaic typing.
+Messages are at the center of OO applications, and they pass among objects along public interfaces.
+Duck typing detaches these from specific classes, creating virtual types that are defined by what they do (instead of who they are).
+Duck typing reveals underlying abstractions that might otherwise be invisible. Depending on these abstractions reduces risk and increases flexibility, making your application cheaper to maintain and easier to change.
