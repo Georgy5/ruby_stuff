@@ -1,7 +1,7 @@
 require 'rqrcode'
 
 content = ARGV[0]
-color = ARGV[1] ? "##{ARGV[1]}" : 'black'
+color = ARGV[1] ? "#{ARGV[1]}" : 'black'
 
 qr_code = RQRCode::QRCode.new(content)
 
