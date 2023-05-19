@@ -29,8 +29,16 @@ def find_boomerang(ary)
   if boomerang_counter == 0
     return none_found_message
   end
-  
-  return "#{boomerang_counter} Boomerang(s) found: #{boomerang_list}"
+
+  return "#{pluralize_boomerangs(boomerang_counter)} found: #{boomerang_list}"
+end
+
+def pluralize_boomerangs(boomerang_counter)
+  if boomerang_counter == 1
+    "#{boomerang_counter} Boomerang"
+  else
+    "#{boomerang_counter} Boomerangs"
+  end
 end
 
 # Test cases to test the #find_boomerang function
@@ -39,9 +47,11 @@ test2 = [1, 2, 1, 2]
 test3 = [2, 2]
 test4 = []
 test5 = [5, 5, 5, 5, 5]
+test6 = [3, 2, 3]
 
 p find_boomerang(test1)
 p find_boomerang(test2)
 p find_boomerang(test3)
 p find_boomerang(test4)
 p find_boomerang(test5)
+p find_boomerang(test6)
