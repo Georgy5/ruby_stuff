@@ -12,4 +12,8 @@ RSpec.describe 'reverse_string' do
   it 'reverses a short string' do
     expect(reverse_string('hello')).to eq('olleh')
   end
+
+  it 'reverses a longer string' do
+    expect(reverse_string('programming')).to eq('gnimmargorp')
+  end
 end
