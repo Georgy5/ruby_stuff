@@ -1,0 +1,8 @@
+*.gem
+bin
+bundle
+.bundle
+specs.out
+spec/examples.txt
+.rspec
+
