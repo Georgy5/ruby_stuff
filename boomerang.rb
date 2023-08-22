@@ -8,31 +8,22 @@
 # iterate and compare groups of three numbers
 
 def find_boomerang(ary)
-  none_found_message = "This list does not contain any Boomerangs"
-  if ary.length < 3
-    return none_found_message
-  end
-
-  boomerang_counter = 0
   boomerang_list = []
-  ary.each_with_index do |num, index|
-    boom_ary = []
-    if ary[index] == ary[index + 2] and ary[index] != ary[index + 1]
-      boomerang_counter += 1
-      boom_ary << ary[index]
-      boom_ary << ary[index + 1]
-      boom_ary << ary[index + 2]
+
+  ary.each_cons(3) do |a, b, c|
+    if a == c and a != b
+      boomerang_list << [a, b, c]
     end
-    boomerang_list << boom_ary unless boom_ary.empty?
   end
 
-  if boomerang_counter == 0
-    return none_found_message
-  end
+  boomerang_count = boomerang_list.size
 
-  output = "#{boomerang_counter} Boomerang"\
-    "#{'s' if boomerang_counter > 1}"\
-    "found: #{boomerang_list}"
+  if boomerang_count.zero?
+    "This list does not contain any Boomerangs"
+  else
+    plural = boomerang_count > 1 ? 's' : ''
+    "#{boomerang_count} Boomerang#{plural} found: #{boomerang_list}"
+  end
 end
 
 # Test cases to test the #find_boomerang function
