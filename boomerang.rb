@@ -30,15 +30,9 @@ def find_boomerang(ary)
     return none_found_message
   end
 
-  return "#{pluralize_boomerangs(boomerang_counter)} found: #{boomerang_list}"
-end
-
-def pluralize_boomerangs(boomerang_counter)
-  if boomerang_counter == 1
-    "#{boomerang_counter} Boomerang"
-  else
-    "#{boomerang_counter} Boomerangs"
-  end
+  output = "#{boomerang_counter} Boomerang"\
+    "#{'s' if boomerang_counter > 1}"\
+    "found: #{boomerang_list}"
 end
 
 # Test cases to test the #find_boomerang function
